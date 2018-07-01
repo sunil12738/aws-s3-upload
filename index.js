@@ -1,6 +1,6 @@
-const dirStructure = require("./getDirStructure.js")
+const getDirectoryStructureObj = require("./getDirectoryStructureObj.js")
 const awsUpload = require("./awsUpload.js")
-const dirStr = dirStructure(process.argv[2])
+const directoryStructure = getDirectoryStructureObj(process.argv[2])
 console.log("dirStr")
 
 let fileStatus = {
@@ -8,11 +8,16 @@ let fileStatus = {
 	errored: 0,
 }
 
-Object.keys(dirStr).forEach(function(data){
-	dirStr[data].forEach(function(d) {
-		console.log(d, data, fileStatus)
-		awsUpload(d, data)
-	})
+Object.keys(directoryStructure).forEach(function(fullFilePath){
+	const filesInDir = directoryStructure[fullFilePath] || []
+	if (filesInDir.length === 0) {
+		awsUpload(null, fullFilePath)
+	} else {
+		directoryStructure[fullFilePath].forEach(function(fileName) {
+			// console.log(fileName, fullFilePath)
+			awsUpload(fileName, fullFilePath)
+		})
+	}
 })
 
 console.log(fileStatus)
