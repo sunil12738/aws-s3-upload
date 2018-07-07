@@ -1,14 +1,14 @@
 {
-  "name": "aws-s3-upload-node",
+  "name": "aws-s3-upload",
   "version": "0.0.1",
-  "description": "A package to upload files and folders (maintaining directory structure) to aws3 using command line",
+  "description": "A package to upload folders (maintaining folder structure) to aws3 in javascript",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sunil12738/aws-s3-upload-node.git"
+    "url": "git+https://github.com/sunil12738/aws-s3-upload.git"
   },
   "keywords": [
     "node",
@@ -23,9 +23,9 @@
   "author": "Sunil Chaudhary",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sunil12738/aws-s3-upload-node/issues"
+    "url": "https://github.com/sunil12738/aws-s3-upload/issues"
   },
-  "homepage": "https://github.com/sunil12738/aws-s3-upload-node#readme",
+  "homepage": "https://github.com/sunil12738/aws-s3-upload#readme",
   "dependencies": {
     "aws-sdk": "^2.266.1"
   }
