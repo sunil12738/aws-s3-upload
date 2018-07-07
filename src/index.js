@@ -1,9 +1,13 @@
 const getDirectoryStructureObj = require("./getDirectoryStructureObj.js")
 const s3Upload = require("./s3Upload.js")
 const awsConsts = require("./consts")
-const directoryStructure = getDirectoryStructureObj(awsConsts.folderNameToUpload)
 
-function upload() {
+function upload(directoryName) {
+  if (!(awsConsts.folderNameToUpload || directoryName)) {
+    console.log("Cannot upload. Directory not specified")
+    process.exit(1)
+  }
+  const directoryStructure = getDirectoryStructureObj(awsConsts.folderNameToUpload || directoryName)
   Object.keys(directoryStructure).forEach(function(fullFilePath){
     const filesInDir = directoryStructure[fullFilePath] || []
     //Create empty folder in case directory is empty
@@ -16,7 +20,5 @@ function upload() {
     }
   })
 }
-
-upload()
 
 module.exports = upload
