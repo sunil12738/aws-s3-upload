@@ -1,9 +1,9 @@
-const x = {}
+const dirStrObj = {}
 const fs = require("fs")
 const getDirectoryStructureObj = function(dir, filelist) {
   let files = null
   filelist = [];
-  x[dir] = []
+  dirStrObj[dir] = []
   try {
     files = fs.readdirSync(dir);
   } catch (e) {
@@ -16,11 +16,11 @@ const getDirectoryStructureObj = function(dir, filelist) {
       getDirectoryStructureObj(dir + '/' + file, filelist);
     }
     else {
-      x[dir].push(file)
+      dirStrObj[dir].push(file)
       filelist.push(file);
     }
   });
-  return x;
+  return dirStrObj;
 };
 
 module.exports = getDirectoryStructureObj
