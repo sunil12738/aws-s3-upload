@@ -1,7 +1,7 @@
 {
   "name": "aws-s3-upload",
-  "version": "0.0.1",
-  "description": "A package to upload folders (maintaining folder structure) to aws3 in javascript",
+  "version": "0.0.2",
+  "description": "A package to upload folders (maintaining folder structure) to aws s3 in javascript",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
